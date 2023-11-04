@@ -1,0 +1,29 @@
+.div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form{
+    width:400px;
+    height: 400px;
+    background-color: gray;
+}
+.input{
+    padding: 4px;
+    border :none;
+    border-radius: 5px;
+    margin: 5px;
+    font-family: 'Poppins', sans-serif;
+    
+}
+.btn{
+    padding:6px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+label{
+    font-family: 'Poppins', sans-serif;
+    margin-left: 10px;
+}
