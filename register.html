@@ -14,7 +14,7 @@
 
 <body>
     <div class="div">
-        <form class="form" action="">
+        <form class="form" onsubmit="registeruser(event)">
             <h2 class="head">Register</h2>
 
             <label for="">Username</label>
@@ -28,12 +28,47 @@
             <input class="input" type="password" placeholder="password" id="pswrd">
             <br>
             <label for="">Confirm Password</label>
-            <input class="input" type="password" placeholder="confirm password" id="pswrdrepeat" id="pswrepeat"
+            <input class="input" type="password" placeholder="confirm password" id="pswrdrepeat" 
                 required>
             <br>
             <button class="btn" type="submit">Register</button>
+            <div class="error" id="errormessage"></div>
         </form>
     </div>
+    <script>
+      
+      let errormessage;
+
+      const registeruser= (event) =>{  //arrowfunction
+        event.preventDefault();
+          let username = document.getElementById("username").value;
+          let email = document.getElementById("email").value;
+          let password = document.getElementById("pswrd").value;
+          let pswrdrepeat = document.getElementById("pswrdrepeat").value;
+        
+          const emailRegex =/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+          const paswRegx = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
+          if(username.length < 8){
+            errormessage = "Username must have atleast 8 characters" 
+          } else if(!emailRegex.test(email)){
+            errormessage = "This isn't a valid email address";
+          }
+          else if (!password.match(password) ||password.length <8){
+            errormessage = "Your password doesn't match";
+          }
+          else if (password != pswrdrepeat){
+            errormessage = "Password doesn't match"
+          }
+          else{
+            alert("Successfully Registered")
+          }
+
+          document.getElementById("errormessage").innerHTML = errormessage;
+
+        }
+
+      
+    </script>
 </body>
 
 </html>

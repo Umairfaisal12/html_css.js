@@ -27,3 +27,6 @@ label{
     font-family: 'Poppins', sans-serif;
     margin-left: 10px;
 }
+.error{
+    color:yellow;
+}
